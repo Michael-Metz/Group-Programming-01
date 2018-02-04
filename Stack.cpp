@@ -19,8 +19,8 @@ void Stack::push(int x)
 
     node = new StackNode;
     node -> data1 = x;
-    node -> next = first;
-    first = node;
+    node -> next = top;
+    top = node;
 }
 
 /**
@@ -32,10 +32,10 @@ void Stack::push(int x)
  */
 int Stack::pop()
 {
-    StackNode* current = first;
+    StackNode* current = this->top;
     int x = current -> data1;
 
-    first = first -> next;
+    top = top -> next;
     delete current;
 
     return x;

@@ -5,12 +5,10 @@
 #include "NoSuchElementException.h"
 #include <iostream>
 
-using namespace std;
-
-NoSuchElementException::NoSuchElementException(string message) {
+NoSuchElementException::NoSuchElementException(std::string message) {
     this->message = message;
 }
 
 void NoSuchElementException::printMessage() {
-    cout << "NoSuchElementException: " << message;
+    std::cout << "NoSuchElementException: " << this->message;
 }

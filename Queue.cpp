@@ -31,8 +31,11 @@ void Queue::enqueue(int data) {
  * @return item at head of queue
  */
 int Queue::dequeue() throw(NoSuchElementException) {
-    if(head == nullptr || size == 0){
-        NoSuchElementException* e = new NoSuchElementException;
+    if(head == nullptr || size == 0)
+    {
+        std::string msg;
+        msg = "Tried dequeueing a empty queue";
+        NoSuchElementException* e = new NoSuchElementException(msg);
         throw *e;
     }
     QueueNode* n = head;
