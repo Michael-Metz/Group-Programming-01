@@ -10,7 +10,7 @@ struct StackNode
 class Stack
 {
 private:
-    StackNode* first;
+    StackNode* top;
 public:
     void push(int x);
     int pop();
