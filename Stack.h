@@ -16,5 +16,4 @@ public:
     int pop();
     bool isEmpty();
     Stack();
-
 };
