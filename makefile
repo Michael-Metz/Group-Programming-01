@@ -4,15 +4,22 @@
 #variable for the compiler
 CC = g++
 
-CFLAGS = -c
+CFLAGS = -std=c++11 -c
 
-all: driver
+all: simulator calculator
 
-driver: driver.o NoSuchElementException.o Queue.o Stack.o
-	$(CC) driver.o NoSuchElementException.o Queue.o Stack.o -o main
+calculator: StackDriver.o Stack.o
+	$(CC) StackDriver.o Stack.o -o calculator
 
-driver.o:
-	$(CC) $(CFLAGS) driver.cpp
+#for running the
+simulator: QueueDriver.o NoSuchElementException.o Queue.o
+	$(CC) QueueDriver.o NoSuchElementException.o Queue.o -o simulator
+
+StackDriver.o:
+	$(CC) $(CFLAGS) StackDriver.cpp
+
+QueueDriver.o:
+		$(CC) $(CFLAGS) QueueDriver.cpp
 
 NoSuchElementException.o:
 	$(CC) $(CFLAGS) NoSuchElementException.cpp
@@ -22,7 +29,7 @@ Stack.o:
 	$(CC) $(CFLAGS) Stack.cpp
 
 clean:
-	rm *.o main
+	rm *.o calculator simulator
 
 #clean and then compile
 refresh: clean all
