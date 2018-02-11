@@ -1,5 +1,5 @@
 #include "Stack.h"
-
+#include <iostream>
 
 Stack::Stack()
 {
@@ -21,6 +21,24 @@ void Stack::push(int x)
     node -> data1 = x;
     node -> next = top;
     top = node;
+}
+int Stack::ontop()
+{
+	StackNode* current = this->top;
+	int x = current->data1;
+	return x;
+}
+void Stack::undo()
+{
+	StackNode* current = top;
+	top = top->next;
+	top->previous = current;
+	
+
+}
+void Stack::redo()
+{
+	top = top->previous;
 }
 
 /**
