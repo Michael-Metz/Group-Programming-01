@@ -12,8 +12,15 @@ private:
     QueueNode* tail;
 public:
     Queue();
+    Queue(const Queue& q);
+    Queue& operator=(const Queue& q);
+
     void enqueue(int item);
     int dequeue() throw(NoSuchElementException);
-    bool isEmpty();
+    int peek() const throw(NoSuchElementException);
+    bool isEmpty() const ;
+    int getSize() const;
+
+    ~Queue();
 
 };

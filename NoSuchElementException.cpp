@@ -5,10 +5,6 @@
 #include "NoSuchElementException.h"
 #include <iostream>
 
-NoSuchElementException::NoSuchElementException(std::string message) {
-    this->message = message;
-}
-
-void NoSuchElementException::printMessage() {
-    std::cout << "NoSuchElementException: " << this->message;
+NoSuchElementException::NoSuchElementException() {
+    std::cout << "Tried dequeueing a empty queue" << std::endl;
 }
