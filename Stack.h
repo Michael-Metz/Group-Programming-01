@@ -3,7 +3,6 @@ struct StackNode
 {
     char c;
     int data1;
-    int data2;
     StackNode* next;
 	StackNode* previous;
 };
@@ -19,5 +18,8 @@ public:
 	void redo();
     int pop();
     bool isEmpty();
+	Stack& operator=(const Stack& q);
     Stack();
+	Stack(const Stack & src);
+	~Stack();
 };

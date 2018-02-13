@@ -5,7 +5,44 @@ Stack::Stack()
 {
     this -> top = nullptr;
 }
+Stack::Stack(const Stack & src)
+{
+	top = nullptr;
+	StackNode* t = src.top;
 
+	//ineffienct way but works
+	Stack temp;
+	//create a temp stack that will contain the reverse of src stack
+	while (t != nullptr)
+	{
+		int data = (*t).data1;
+		temp.push(data);
+		t = t->next;
+	}
+	//create this stack wich will now contain the contains of src stack
+	t = temp.top;
+	while (t != nullptr)
+	{
+		int data = (*t).data1;
+		this->push(data);
+		t = t->next;
+	}
+}
+Stack::~Stack() {
+	top = nullptr;
+
+	StackNode* temp;
+
+	while (this->top != nullptr) {
+		temp = this->top;
+		this->top = this->top->next;
+		delete temp;
+	}
+}
+Stack& Stack::operator=(const Stack& q) {
+	Stack* seperate = new Stack(q);
+	return *seperate;
+}
 /**
  * This function will create a new node to be put into the stack,
  * set's the nodes data1 to the passed value, and sets the top
